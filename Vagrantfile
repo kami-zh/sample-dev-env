@@ -19,6 +19,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       ruby: {
         version: '2.1.2'
       },
+      rbenv: {
+        group_users: ['vagrant']
+      },
       mysql: {
         version: '5.6',
         server_root_password: 'sample',
