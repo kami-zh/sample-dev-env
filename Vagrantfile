@@ -10,12 +10,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.cookbooks_path = ['infra/cookbooks', 'infra/site-cookbooks']
 
     chef.run_list = [
-      'recipe[ruby]'
+      'recipe[ruby]',
+      'recipe[mysql]',
+      'recipe[database]'
     ]
 
     chef.json = {
       ruby: {
         version: '2.1.2'
+      },
+      mysql: {
+        version: '5.6',
+        server_root_password: 'sample',
+        database: 'sample'
       }
     }
   end
