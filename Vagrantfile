@@ -8,5 +8,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ['infra/cookbooks', 'infra/site-cookbooks']
+
+    chef.run_list = [
+      'recipe[ruby]'
+    ]
+
+    chef.json = {
+      ruby: {
+        version: '2.1.2'
+      }
+    }
   end
 end
